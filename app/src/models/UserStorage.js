@@ -18,11 +18,11 @@ class UserStorage{
         return newUsers;
     }
 
-    static getUsersInfo(id){
+    static getUserInfo(id){
         const users = this.#users;
         const idx = users.id.indexOf(id);
         const usersKeys = Object.keys(users); // => [id, psword, name]
-        const usersInfo = usersKeys.reduce((newUser, info) => {
+        const userInfo = usersKeys.reduce((newUser, info) => {
             newUser[info] = users[info][idx];
             return newUser;
         }, {});
@@ -30,16 +30,13 @@ class UserStorage{
         return userInfo;
     }
 
-    static getUsersInfo(id){
-        const users = this.#users;
-        const idx = users.id.indexOf(id);
-        const usersKeys = Object.keys(users);   // => [id, psword, name]     
-        const usersInfo = usersKeys.reduce((newUser, info) => {
-            newUser[info] = users[info][idx];
-            return newUser;
-        }, {});
 
-        return usersInfo;
+    static save(userInfo){
+        const users = this.#users;
+        users.id.push(userInfo.id);
+        users.name.push(userInfo.name);
+        users.psword.push(userInfo.psword);
+        return {success : true};
     }
 }
 
