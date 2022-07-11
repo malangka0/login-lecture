@@ -14,7 +14,7 @@ const output = {
 
 const users = {
     id : ["malangka0", "최혁규", "최사원"],
-    psword : ["1234,", "1234", "123456"],
+    psword : ["1234", "1234", "123456"],
 };
 
 const process = {
